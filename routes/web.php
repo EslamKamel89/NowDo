@@ -13,5 +13,7 @@ Route::prefix('/auth')
             ->name('register');
         Route::post('/login', [AuthController::class, 'login'])
             ->name('login');
+        Route::get('/register', fn() => inertia('Auth/Register'));
+        Route::get('/login', fn() => inertia('Auth/Login'));
     });
 require __DIR__ . '/api.php';
