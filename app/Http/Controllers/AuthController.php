@@ -23,7 +23,7 @@ class AuthController extends Controller {
         Auth::login($user);
         session()->regenerate();
         Mail::send(new SendMail($user));
-        return redirect()->back()->with(['success' => 'Your account is created successfully']);
+        return redirect()->route('home')->with(['success' => 'Your account is created successfully']);
     }
     public function login(Request $request) {
         $fields = $request->all();
@@ -35,7 +35,7 @@ class AuthController extends Controller {
         if ($user && Hash::check($validated['password'], $user?->password)) {
             Auth::login($user);
             session()->regenerate();
-            return redirect()->back()->with(['success' => 'You logged in successfully']);
+            return redirect()->route('home')->with(['success' => 'You logged in successfully']);
         }
         return redirect()->route('login')
             ->with(['error' => 'Invalid Credentials']);
