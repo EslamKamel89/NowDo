@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SessionMsg from '@/components/Shared/SessionMsg.vue';
 import ValidationError from '@/components/Shared/ValidationError.vue';
 import Button from '@/components/ui/button/Button.vue';
 import Card from '@/components/ui/card/Card.vue';
@@ -18,6 +19,7 @@ const submit = () => {
     <AuthLayout>
         <Card class="w-full max-w-md p-5">
             <h1 class="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">Sign In to NoDow</h1>
+            <SessionMsg />
             <form @submit.prevent="submit" class="space-y-4">
                 <div class="space-y-2">
                     <Label for="email">Email</Label>

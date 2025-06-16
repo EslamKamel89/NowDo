@@ -10,6 +10,10 @@ export type AppPageProps<T extends Record<string, unknown> = Record<string, unkn
     auth: Auth;
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
+    session: {
+        error?: string | null;
+        success?: string | null;
+    };
 };
 
 export interface User {
