@@ -4,30 +4,27 @@ import Card from '@/components/ui/card/Card.vue';
 import Input from '@/components/ui/input/Input.vue';
 import Label from '@/components/ui/label/Label.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
+import { Link } from '@inertiajs/vue3';
 </script>
 <template>
     <AuthLayout>
-        <div
-            class="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 px-4 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
-        >
-            <Card class="w-full max-w-md">
-                <h1 class="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">Sign In to NoDow</h1>
-                <form @submit.prevent="" class="space-y-4">
-                    <div class="space-y-2">
-                        <Label for="email">Email</Label>
-                        <Input id="email" type="email" placeholder="you@example.com" />
-                    </div>
-                    <div class="space-y-2">
-                        <Label for="password">Password</Label>
-                        <Input id="password" type="password" placeholder="••••••••" />
-                    </div>
-                    <Button class="mt-4 w-full">Sign In</Button>
-                </form>
-                <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-                    Don't have an account?
-                    <RouterLink to="/register" class="text-blue-600 hover:underline">Register</RouterLink>
-                </p>
-            </Card>
-        </div>
+        <Card class="w-full max-w-md p-5">
+            <h1 class="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">Sign In to NoDow</h1>
+            <form @submit.prevent="" class="space-y-4">
+                <div class="space-y-2">
+                    <Label for="email">Email</Label>
+                    <Input id="email" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="space-y-2">
+                    <Label for="password">Password</Label>
+                    <Input id="password" type="password" placeholder="••••••••" />
+                </div>
+                <Button class="mt-4 w-full">Sign In</Button>
+            </form>
+            <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+                Don't have an account?
+                <Link href="/auth/register" class="text-blue-600 hover:underline">Register</Link>
+            </p>
+        </Card>
     </AuthLayout>
 </template>

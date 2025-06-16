@@ -1,8 +1,34 @@
 <script setup lang="ts">
+import Button from '@/components/ui/button/Button.vue';
+import Card from '@/components/ui/card/Card.vue';
+import Input from '@/components/ui/input/Input.vue';
+import Label from '@/components/ui/label/Label.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
+import { Link } from '@inertiajs/vue3';
 </script>
 <template>
     <AuthLayout>
-        <div>Register</div>
+        <Card class="w-full max-w-md p-5">
+            <h1 class="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">Create Your Account</h1>
+            <form @submit.prevent="" class="space-y-4">
+                <div class="space-y-2">
+                    <Label for="name">Full Name</Label>
+                    <Input id="name" type="text" placeholder="John Doe" />
+                </div>
+                <div class="space-y-2">
+                    <Label for="email">Email</Label>
+                    <Input id="email" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="space-y-2">
+                    <Label for="password">Password</Label>
+                    <Input id="password" type="password" placeholder="••••••••" />
+                </div>
+                <Button class="mt-4 w-full">Register</Button>
+            </form>
+            <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+                Already have an account?
+                <Link href="/auth/login" class="text-blue-600 hover:underline">Sign In</Link>
+            </p>
+        </Card>
     </AuthLayout>
 </template>
