@@ -13,6 +13,7 @@ Route::prefix('/auth')
             ->name('register');
         Route::post('/login', [AuthController::class, 'login'])
             ->name('login');
+        Route::post('/logout', [AuthController::class, 'logout']);
         Route::get('/register', fn() => inertia('Auth/Register'));
         Route::get('/login', fn() => inertia('Auth/Login'));
     });

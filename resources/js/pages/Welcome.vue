@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3';
+import { AppPageProps } from '@/types';
+import { Head, usePage } from '@inertiajs/vue3';
 import { useDark, useToggle } from '@vueuse/core';
 import { onMounted } from 'vue';
 
@@ -8,6 +9,7 @@ const toggleDark = useToggle(isDark);
 onMounted(() => {
     toggleDark(false);
 });
+const page = usePage<AppPageProps>();
 </script>
 
 <template>
@@ -15,5 +17,8 @@ onMounted(() => {
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </Head>
-    <div>Hello world</div>
+    <div class="flex items-center justify-center space-x-2">
+        <div>Hello</div>
+        <div v-if="page.props.auth.user">{{ page.props.auth.user.name }}</div>
+    </div>
 </template>

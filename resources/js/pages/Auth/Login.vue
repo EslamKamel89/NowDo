@@ -29,7 +29,7 @@ const submit = () => {
                     <Input v-model="form.password" id="password" type="password" placeholder="••••••••" />
                     <ValidationError :error="form.errors.password" />
                 </div>
-                <Button class="mt-4 w-full">Sign In</Button>
+                <Button :disabled="form.processing" class="mt-4 w-full">Sign In</Button>
             </form>
             <p class="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
                 Don't have an account?
